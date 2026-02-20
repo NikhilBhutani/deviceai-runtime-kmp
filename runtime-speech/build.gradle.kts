@@ -333,9 +333,21 @@ extensions.configure<LibraryExtension> {
 
 // Publishing configuration
 publishing {
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/NikhilBhutani/deviceai-runtime-kmp")
+            credentials {
+                username = (findProperty("gpr.user") as String?) ?: System.getenv("GITHUB_ACTOR")
+                password = (findProperty("gpr.key") as String?) ?: System.getenv("GITHUB_TOKEN")
+            }
+        }
+    }
     publications.withType<MavenPublication>().configureEach {
+        groupId = "ai.onmobi"
+        artifactId = artifactId.replace("runtime-speech", "runtime-speech")
         pom {
-            name.set("deviceai-runtime-kmp")
+            name.set("DeviceAI Runtime — Speech")
             description.set("Kotlin Multiplatform library for on-device Speech-to-Text and Text-to-Speech")
             url.set("https://github.com/NikhilBhutani/deviceai-runtime-kmp")
             licenses {

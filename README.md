@@ -77,7 +77,27 @@ DeviceAI Runtime  (ai.onmobi)
 
 ### 1. Add the dependency
 
-> GitHub Packages setup coming in v0.2. For now, clone and use as a local module.
+**Via GitHub Packages** (after a release is published):
+
+```kotlin
+// settings.gradle.kts
+dependencyResolutionManagement {
+    repositories {
+        maven {
+            url = uri("https://maven.pkg.github.com/NikhilBhutani/deviceai-runtime-kmp")
+            credentials {
+                username = providers.gradleProperty("gpr.user").orNull ?: System.getenv("GITHUB_ACTOR")
+                password = providers.gradleProperty("gpr.key").orNull ?: System.getenv("GITHUB_TOKEN")
+            }
+        }
+    }
+}
+
+// build.gradle.kts
+implementation("ai.onmobi:runtime-speech:0.1.0")
+```
+
+**Or use as a local module** (clone and include directly):
 
 ```kotlin
 // settings.gradle.kts
