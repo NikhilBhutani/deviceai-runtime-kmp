@@ -40,7 +40,7 @@ Real numbers on real hardware. No marketing RTF.
 Your App
     │
     ▼
-DeviceAI Runtime  (io.github.nikhilbhutani)
+DeviceAI Runtime  (com.nikhilbhutani)
     │   SpeechBridge — unified Kotlin API
     │   ModelRegistry — auto-download from HuggingFace
     │
@@ -94,7 +94,7 @@ dependencyResolutionManagement {
 }
 
 // build.gradle.kts
-implementation("io.github.nikhilbhutani:runtime-speech:0.1.0")
+implementation("com.nikhilbhutani:runtime-speech:0.1.0")
 ```
 
 **Or use as a local module** (clone and include directly):
@@ -111,9 +111,9 @@ implementation(project(":runtime-speech"))
 ### 2. Speech-to-Text
 
 ```kotlin
-import io.github.nikhilbhutani.SpeechBridge
-import io.github.nikhilbhutani.SttConfig
-import io.github.nikhilbhutani.models.ModelRegistry
+import com.nikhilbhutani.SpeechBridge
+import com.nikhilbhutani.SttConfig
+import com.nikhilbhutani.models.ModelRegistry
 
 // Download model on first run (whisper-tiny = 75MB)
 val model = ModelRegistry.getOrDownload("ggml-tiny.en.bin")
@@ -134,8 +134,8 @@ SpeechBridge.shutdownStt()
 ### 3. Text-to-Speech
 
 ```kotlin
-import io.github.nikhilbhutani.SpeechBridge
-import io.github.nikhilbhutani.TtsConfig
+import com.nikhilbhutani.SpeechBridge
+import com.nikhilbhutani.TtsConfig
 
 SpeechBridge.initTts(
     modelPath = "/path/to/voice.onnx",
@@ -215,7 +215,7 @@ cd deviceai-runtime-kmp
 - [x] TTS via Piper + ONNX
 - [x] Model auto-download from HuggingFace
 - [x] KMP: Android, iOS, Desktop
-- [ ] Maven Central / GitHub Packages release (`io.github.nikhilbhutani:runtime-speech`)
+- [ ] Maven Central / GitHub Packages release (`com.nikhilbhutani:runtime-speech`)
 - [ ] LLM inference module (`runtime-llm`)
 - [ ] Cloud fallback layer
 - [ ] Streaming TTS

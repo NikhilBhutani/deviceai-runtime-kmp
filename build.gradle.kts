@@ -7,6 +7,6 @@ plugins {
 }
 
 allprojects {
-    group = "io.github.nikhilbhutani"
+    group = "com.nikhilbhutani"
     version = System.getenv("RELEASE_VERSION") ?: "0.1.0-SNAPSHOT"
 }
